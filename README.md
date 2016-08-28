@@ -7,7 +7,7 @@ This is an sample setup to git commit a docker volume every time a file is updat
 This image is the one watching for updates on a given file and performing the commit when change is detected.
 
 Example usage:
-```
+```yaml
 sync:
   build: ./sync
   environment:
