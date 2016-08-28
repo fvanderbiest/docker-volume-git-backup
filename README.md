@@ -4,7 +4,8 @@ This is an sample setup to git commit a docker volume every time a file is updat
 
 # sync
 
-This image is the one watching for updates on a given file and performing the commit & push when change is detected.
+This image is the one watching for updates on a given file and performing the commit & push when change is detected. 
+The volume to backup should be mounted on `/var/local/data`.
 
 Example usage:
 ```yaml
