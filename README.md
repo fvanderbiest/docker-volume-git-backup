@@ -27,8 +27,8 @@ Required environment:
  * `GIT_EMAIL`: your email
 
 To push to a repository, these additional variables are required:
- * `REMOTE_NAME`: the name of the git remote, eg origin
- * `REMOTE_URL`: the git repository URL, eg https://github.com/fvanderbiest/playground.git
+ * `REMOTE_NAME`: the name of the git remote, eg `origin`
+ * `REMOTE_URL`: the git repository URL, eg `https://github.com/fvanderbiest/playground.git`
  * `TOKEN`: your password, or probably better: a token (eg: [GitHub tokens](https://github.com/settings/tokens))
 
 **WARNING**: the `git push` command performs a **forced update** to the `master` branch, which might result in **data loss** !
