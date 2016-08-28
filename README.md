@@ -4,6 +4,8 @@ This repository provides a sample setup to git commit a docker volume every time
 
 The [fvanderbiest/volume-git-backup](https://hub.docker.com/r/fvanderbiest/volume-git-backup/) image on Docker Hub is built from the Dockerfile in the `sync` directory. Feel free to use it if it suits your needs. 
 
+The [docker-compose](docker-compose.yml) file and [geoserver_mock/Dockerfile](geoserver_mock/Dockerfile) we provide here are only meant to ease testing. 
+
 # fvanderbiest/volume-git-backup
 
 This image is the one watching for updates on a given file and performing the commit (& optionally push) when change is detected. The volume to backup should be mounted on `/var/local/data`.
