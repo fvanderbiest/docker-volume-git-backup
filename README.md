@@ -34,7 +34,7 @@ To push to a repository, these additional variables are required:
 **WARNING**: the `git push` command performs a **forced update** to the `master` branch, which might result in **data loss** !
 
 Optional:
- * `SLEEPING_TIME`: if `WATCH_FILE` does not exist at startup, time to wait before a new checks starts. Defaults to 1 sec.
+ * `SLEEPING_TIME`: if `WATCH_FILE` does not exist at startup, time to wait before a new check starts. Defaults to 1 sec.
 
 
 # geoserver_mock
