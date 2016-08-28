@@ -1,11 +1,12 @@
 # Automatic docker volume backup with git
 
-This is an sample setup to git commit a docker volume every time a file is updated.
+This repository provides a sample setup to git commit a docker volume every time a file is updated.
 
-# sync
+The [fvanderbiest/volume-git-backup](https://hub.docker.com/r/fvanderbiest/volume-git-backup/) docker image is built from the Dockerfile in the `sync` directory. Feel free to use it if it suits your needs. 
 
-This image is the one watching for updates on a given file and performing the commit & push when change is detected. 
-The volume to backup should be mounted on `/var/local/data`.
+# fvanderbiest/volume-git-backup
+
+This image is the one watching for updates on a given file and performing the commit (& optionally push) when change is detected. The volume to backup should be mounted on `/var/local/data`.
 
 Example usage:
 ```yaml
