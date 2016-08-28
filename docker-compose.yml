@@ -1,0 +1,21 @@
+geoserver:
+  build: ./geoserver_mock
+  environment:
+    DATADIR_PATH: /opt/geoserver_data_dir
+  volumes:
+    - geoserver_datadir:/opt/geoserver_data_dir:rw
+
+sync:
+  build: ./sync
+  environment:
+    WATCH_FILE: global.xml
+    SLEEPING_TIME: 5
+    COMMIT_MESSAGE: printf "updateSequence "; grep updateSequence global.xml|sed -e 's#.*ce>\(.*\)</up.*#\1#'
+    REMOTE: origin
+    REMOTE_URL: https://github.com/fvanderbiest/playground
+    BRANCH: master
+    USERNAME: fvanderbiest
+    EMAIL: my.email@provider.com
+    TOKEN: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  volumes:
+    - geoserver_datadir:/var/local/data:rw
