@@ -24,15 +24,15 @@ sync:
 ```
 
 Required environment:
- * `WATCH_FILE`: the file to watch
- * `GIT_COMMIT_MESSAGE`: string or expression evaluated in volume to provide a commit message 
- * `GIT_USERNAME`: well, it's your username
- * `GIT_EMAIL`: your email
+ * `WATCH_FILE`: file to watch (path relative to `/var/local/data`)
+ * `GIT_COMMIT_MESSAGE`: string or expression evaluated in the volume to provide a commit message 
+ * `GIT_USERNAME`: git username for commit
+ * `GIT_EMAIL`: git email for commit
 
 To push to a repository, these additional variables are required:
- * `REMOTE_NAME`: the name of the git remote, eg `origin`
- * `REMOTE_URL`: the git repository URL, eg `https://github.com/fvanderbiest/playground.git`
- * `TOKEN`: your password, or probably better: a token (eg: [GitHub tokens](https://github.com/settings/tokens))
+ * `REMOTE_NAME`: name of the git remote, eg `origin`
+ * `REMOTE_URL`: git repository URL, eg `https://github.com/fvanderbiest/playground.git`
+ * `TOKEN`: password or OAuth token (eg: [GitHub token](https://github.com/settings/tokens))
 
 **WARNING**: the `git push` command performs a **forced update** to the `master` branch, which might result in **data loss** !
 
