@@ -13,7 +13,6 @@ sync:
   image: fvanderbiest/volume-git-backup
   environment:
     WATCH_FILE: global.xml
-    SLEEPING_TIME: 5
     GIT_COMMIT_MESSAGE: printf "updateSequence "; grep updateSequence global.xml|sed -e 's#.*ce>\(.*\)</up.*#\1#'
     GIT_USERNAME: fvanderbiest
     GIT_EMAIL: my.email@provider.com
@@ -27,15 +26,15 @@ Required environment:
  * `GIT_USERNAME`: well, it's your username
  * `GIT_EMAIL`: your email
 
-Optional:
- * `SLEEPING_TIME`: if `WATCH_FILE` does not exist at startup, time to wait before a new checks starts. Defaults to 1 sec.
-
 To push to a repository, these additional variables are required:
  * `REMOTE_NAME`: the name of the git remote, eg origin
  * `REMOTE_URL`: the git repository URL, eg https://github.com/fvanderbiest/playground.git
  * `TOKEN`: your password, or probably better: a token (eg: [GitHub tokens](https://github.com/settings/tokens))
 
-WARNING: the `git push` command performs a **forced update** to the `master` branch, which might result in **data loss** !
+**WARNING**: the `git push` command performs a **forced update** to the `master` branch, which might result in **data loss** !
+
+Optional:
+ * `SLEEPING_TIME`: if `WATCH_FILE` does not exist at startup, time to wait before a new checks starts. Defaults to 1 sec.
 
 
 # geoserver_mock
