@@ -2,7 +2,7 @@
 
 This repository provides a sample setup to git commit a docker volume every time a file is updated.
 
-The [fvanderbiest/volume-git-backup](https://hub.docker.com/r/fvanderbiest/volume-git-backup/) docker image is built from the Dockerfile in the `sync` directory. Feel free to use it if it suits your needs. 
+The [fvanderbiest/volume-git-backup](https://hub.docker.com/r/fvanderbiest/volume-git-backup/) image on Docker Hub is built from the Dockerfile in the `sync` directory. Feel free to use it if it suits your needs. 
 
 # fvanderbiest/volume-git-backup
 
