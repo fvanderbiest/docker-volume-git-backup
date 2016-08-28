@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y python-dev && \
 		rm -rf /var/lib/apt/lists/*
 
-ADD change.py .
+COPY change.py .
 
 VOLUME [ "/opt/geoserver_data_dir" ]
 

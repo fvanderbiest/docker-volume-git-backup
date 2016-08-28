@@ -17,13 +17,19 @@ do
     else
         echo "$WATCH_FILE exists"
     fi
+
     # set up watches:
     inotifywait -e modify $WATCH_FILE
+
     # commit all files from current dir:
     git add --all .
-    # get commit message:
+
+    # commit with custom message:
     msg=`eval $COMMIT_MESSAGE`
     git commit -m "${msg:-"no commit message"}"
-    # push to repository in the background
-    git push --force $REMOTE $BRANCH &
+
+    if $PUSH; then
+        # push to repository in the background
+        git push --force $REMOTE_NAME master &
+    fi
 done

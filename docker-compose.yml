@@ -6,16 +6,17 @@ geoserver:
     - geoserver_datadir:/opt/geoserver_data_dir:rw
 
 sync:
-  build: ./sync
+  #build: ./sync
+  image: fvanderbiest/volume-git-backup
   environment:
     WATCH_FILE: global.xml
     SLEEPING_TIME: 5
     COMMIT_MESSAGE: printf "updateSequence "; grep updateSequence global.xml|sed -e 's#.*ce>\(.*\)</up.*#\1#'
-    REMOTE: origin
-    REMOTE_URL: https://github.com/fvanderbiest/playground
-    BRANCH: master
     USERNAME: fvanderbiest
-    EMAIL: my.email@provider.com
+    EMAIL: francois.vanderbiest@gmail.com
+    PUSH: 'true'
+    REMOTE_NAME: origin
+    REMOTE_URL: https://github.com/fvanderbiest/playground
     TOKEN: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   volumes:
     - geoserver_datadir:/var/local/data:rw
