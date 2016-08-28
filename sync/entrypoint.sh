@@ -7,17 +7,17 @@ if [ ! -d .git ]; then
 fi
 
 # set name and email to use for commits made by this container
-git config --global user.email "$EMAIL"
-git config --global user.name "$USERNAME"
+git config --global user.email "$GIT_EMAIL"
+git config --global user.name "$GIT_USERNAME"
 
-if $PUSH; then
+if [ $REMOTE_NAME ]  && [ $REMOTE_URL ]  && [ $TOKEN ]; then
     git config --global credential.helper store
 
     # extract machine name from $REMOTE_URL 
     MACHINE=$(echo $REMOTE_URL | sed -e 's#.*://\([^/]*\)/.*#\1#')
 
     # tell git which credentials to use for commit
-    echo "https://$USERNAME:$TOKEN@$MACHINE" > /root/.git-credentials
+    echo "https://$GIT_USERNAME:$TOKEN@$MACHINE" > /root/.git-credentials
 
     # set new url for remote
     git remote rm $REMOTE_NAME &> /dev/null

@@ -25,10 +25,10 @@ do
     git add --all .
 
     # commit with custom message:
-    msg=`eval $COMMIT_MESSAGE`
+    msg=`eval $GIT_COMMIT_MESSAGE`
     git commit -m "${msg:-"no commit message"}"
 
-    if $PUSH; then
+    if [ $REMOTE_NAME ]  && [ $REMOTE_URL ]  && [ $TOKEN ]; then
         # push to repository in the background
         git push --force $REMOTE_NAME master &
     fi

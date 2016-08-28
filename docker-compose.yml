@@ -11,10 +11,9 @@ sync:
   environment:
     WATCH_FILE: global.xml
     SLEEPING_TIME: 5
-    COMMIT_MESSAGE: printf "updateSequence "; grep updateSequence global.xml|sed -e 's#.*ce>\(.*\)</up.*#\1#'
-    USERNAME: fvanderbiest
-    EMAIL: francois.vanderbiest@gmail.com
-    PUSH: 'true'
+    GIT_COMMIT_MESSAGE: printf "updateSequence "; grep updateSequence global.xml|sed -e 's#.*ce>\(.*\)</up.*#\1#'
+    GIT_USERNAME: fvanderbiest
+    GIT_EMAIL: francois.vanderbiest@gmail.com
     REMOTE_NAME: origin
     REMOTE_URL: https://github.com/fvanderbiest/playground
     TOKEN: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

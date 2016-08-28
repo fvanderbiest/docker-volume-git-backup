@@ -14,28 +14,25 @@ sync:
   environment:
     WATCH_FILE: global.xml
     SLEEPING_TIME: 5
-    COMMIT_MESSAGE: printf "updateSequence "; grep updateSequence global.xml|sed -e 's#.*ce>\(.*\)</up.*#\1#'
-    USERNAME: fvanderbiest
-    EMAIL: my.email@provider.com
-    PUSH: 'true'
-    REMOTE_URL: https://github.com/fvanderbiest/playground
-    REMOTE_NAME: origin
-    TOKEN: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    GIT_COMMIT_MESSAGE: printf "updateSequence "; grep updateSequence global.xml|sed -e 's#.*ce>\(.*\)</up.*#\1#'
+    GIT_USERNAME: fvanderbiest
+    GIT_EMAIL: my.email@provider.com
   volumes:
     - geoserver_datadir:/var/local/data:rw
 ```
 
-Variables:
+Required environment:
  * `WATCH_FILE`: the file to watch
- * `SLEEPING_TIME`: (optional) if `WATCH_FILE` does not exist at startup, time to wait before a new checks starts. Defaults to 1 sec.
- * `COMMIT_MESSAGE`: string or expression evaluated in volume to provide a commit message 
- * `USERNAME`: well, it's your username
- * `EMAIL`: your email
- * `PUSH`: boolean, defaults to `'false'`. If `'true'`, git push master branch to repository.
- 
-Required only if `PUSH` is set to `'true'`:
- * `REMOTE_NAME`: name of the git remote
- * `REMOTE_URL`: where to find the git repository
+ * `GIT_COMMIT_MESSAGE`: string or expression evaluated in volume to provide a commit message 
+ * `GIT_USERNAME`: well, it's your username
+ * `GIT_EMAIL`: your email
+
+Optional:
+ * `SLEEPING_TIME`: if `WATCH_FILE` does not exist at startup, time to wait before a new checks starts. Defaults to 1 sec.
+
+To push to a repository, these additional variables are required:
+ * `REMOTE_NAME`: the name of the git remote, eg origin
+ * `REMOTE_URL`: the git repository URL, eg https://github.com/fvanderbiest/playground.git
  * `TOKEN`: your password, or probably better: a token (eg: [GitHub tokens](https://github.com/settings/tokens))
 
 WARNING: the `git push` command performs a **forced update** to the `master` branch, which might result in **data loss** !
