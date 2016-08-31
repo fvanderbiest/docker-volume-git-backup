@@ -6,7 +6,6 @@ geoserver:
     - geoserver_datadir:/opt/geoserver_data_dir:rw
 
 sync:
-  #build: ./sync
   image: fvanderbiest/volume-git-backup
   environment:
     WATCH_FILE: global.xml

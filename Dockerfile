@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y git inotify-tools && \
 		rm -rf /var/lib/apt/lists/* /usr/share/doc/* /usr/share/man/*
 
-COPY *.sh /
+COPY scripts/*.sh /
 RUN chmod +x /entrypoint.sh
 
 VOLUME [ "/var/local/data" ]

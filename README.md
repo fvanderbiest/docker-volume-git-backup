@@ -1,14 +1,15 @@
 # Automatic docker volume backup with git
 
-This repository provides a sample setup to git commit a docker volume every time a file is updated.
+This repository is the source of the [fvanderbiest/volume-git-backup](https://hub.docker.com/r/fvanderbiest/volume-git-backup/) image on Docker Hub. 
+The [fvanderbiest/volume-git-backup](https://hub.docker.com/r/fvanderbiest/volume-git-backup/) image provides an easy way to `git commit` a docker volume every time a file is updated. 
+Feel free to use it if it suits your needs. Contributions welcomed.
 
-The [fvanderbiest/volume-git-backup](https://hub.docker.com/r/fvanderbiest/volume-git-backup/) image on Docker Hub is built from the Dockerfile in the `sync` directory. Feel free to use it if it suits your needs. 
+This image expects to find the volume mounted in `rw` mode on `/var/local/data`.
 
-The [docker-compose](docker-compose.yml) file and [geoserver_mock/Dockerfile](geoserver_mock/Dockerfile) we provide here are only meant to ease testing. 
+The file to watch for changes should also be contained in this directory.
+The `run.sh` script uses `inotifywait` to watch for updates on this file.
 
-# fvanderbiest/volume-git-backup
-
-This image is the one watching for updates on a given file and performing the commit (& optionally push) when change is detected. The volume to backup should be mounted on `/var/local/data`.
+When change is detected, the script performs the commit and optionally pushes to a remote repository.
 
 Example usage:
 ```yaml
@@ -40,7 +41,9 @@ Optional:
  * `SLEEPING_TIME`: if `WATCH_FILE` does not exist at startup, time to wait before a new check starts. Defaults to 1 sec.
 
 
-# geoserver_mock
+# testing
 
-This image is used for testing purposes: its goal is to periodically update content in a docker volume.
-It kind of mimics what [GeoServer](http://geoserver.org/) does to its config directory.
+In the `tests` folder there's a [docker-compose](tests/docker-compose.yml) file to easily create a test environment. 
+
+The Dockerfile in the `tests/geoserver_mock` directory creates an image whose purpose is to periodically update the contents of a docker volume.
+It kind of mimics what [GeoServer](http://geoserver.org/) does to its config directory and is a lightweight alternative.
