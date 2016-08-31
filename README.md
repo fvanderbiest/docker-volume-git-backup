@@ -1,13 +1,13 @@
 # Automatic docker volume backup with git
 
 This repository is the source of the [fvanderbiest/volume-git-backup](https://hub.docker.com/r/fvanderbiest/volume-git-backup/) image on Docker Hub. 
-The [fvanderbiest/volume-git-backup](https://hub.docker.com/r/fvanderbiest/volume-git-backup/) image provides an easy way to `git commit` a docker volume every time a file is updated. 
+The image provides an easy way to `git commit` a docker volume every time a file is updated. 
 Feel free to use it if it suits your needs. Contributions welcomed.
 
 This image expects to find the volume mounted in `rw` mode on `/var/local/data`.
 
 The file to watch for changes should also be contained in this directory.
-The `run.sh` script uses `inotifywait` to watch for updates on this file.
+Internally, we're using `inotifywait` to watch the file.
 
 When change is detected, the script performs the commit and optionally pushes to a remote repository.
 
