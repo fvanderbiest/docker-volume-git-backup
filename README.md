@@ -25,7 +25,7 @@ sync:
 ```
 
 Required environment:
- * `WATCH_FILE`: file to watch (path relative to `/var/local/data`)
+ * `WATCH_FILE`: file to watch (path relative to volume root, or `/var/local/data`)
  * `GIT_COMMIT_MESSAGE`: string or expression evaluated in the volume to provide a commit message 
  * `GIT_USERNAME`: git username for commit
  * `GIT_EMAIL`: git email for commit
