@@ -1,5 +1,8 @@
 # Automatic docker volume backup with git
 
+[![License](https://img.shields.io/dub/l/vibe-d.svg)](https://img.shields.io/dub/l/vibe-d.svg)
+[![Pulls](https://img.shields.io/docker/pulls/fvanderbiest/volume-git-backup.svg)](https://img.shields.io/docker/pulls/fvanderbiest/volume-git-backup.svg)
+
 This repository is the source of the [fvanderbiest/volume-git-backup](https://hub.docker.com/r/fvanderbiest/volume-git-backup/) image on Docker Hub. 
 The image provides an easy way to `git commit` a docker volume every time a file is updated. 
 Feel free to use it if it suits your needs. Contributions welcomed.
@@ -43,7 +46,7 @@ Optional:
 
 # testing
 
-In the `tests` folder there's a [docker-compose](tests/docker-compose.yml) file to easily create a test environment. 
+In the `tests` folder there's a [docker-compose](tests/docker-compose.yml) file to easily create a testing environment. 
 
 The Dockerfile in the `tests/geoserver_mock` directory creates an image whose purpose is to periodically update the contents of a docker volume.
 It kind of mimics what [GeoServer](http://geoserver.org/) does to its config directory and is a lightweight alternative.
