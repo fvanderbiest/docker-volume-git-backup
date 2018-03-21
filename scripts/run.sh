@@ -28,8 +28,8 @@ do
     msg=`eval $GIT_COMMIT_MESSAGE`
     git commit -m "${msg:-"no commit message"}"
 
-    if [ $REMOTE_NAME ]  && [ $REMOTE_URL ]  && [ $TOKEN ]; then
+    if [ $REMOTE_NAME ] && [ $REMOTE_URL ]; then
         # push to repository in the background
-        git push --force $REMOTE_NAME master &
+        git push --force $REMOTE_NAME $REMOTE_BRANCH &
     fi
 done
