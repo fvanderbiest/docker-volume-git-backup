@@ -1,5 +1,5 @@
 docker-build:
-	docker pull debian:jessie
+	docker pull debian:stretch
 	docker build -t fvanderbiest/volume-git-backup:`date +%Y%m%d%H%M%S` .
 	docker build -t fvanderbiest/volume-git-backup:latest .
 
