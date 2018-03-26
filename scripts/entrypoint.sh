@@ -61,6 +61,7 @@ if [ -n "$REMOTE_NAME" ] && [ -n "$REMOTE_URL" ]; then
   git fetch $REMOTE_NAME
   echo "Reset to upstream state"
   git reset --hard $REMOTE_NAME/$REMOTE_BRANCH
+  git clean -xdf
 fi
 
 # execute CMD

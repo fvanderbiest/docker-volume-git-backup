@@ -30,6 +30,6 @@ do
 
     if [ $REMOTE_NAME ] && [ $REMOTE_URL ]; then
         # push to repository in the background
-        git push --force $REMOTE_NAME $REMOTE_BRANCH &
+        git push $REMOTE_NAME $REMOTE_BRANCH &
     fi
 done

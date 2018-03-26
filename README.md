@@ -44,13 +44,13 @@ To push to a repository, these additional variables are required:
  * `REMOTE_URL`: git repository URL, eg `https://github.com/fvanderbiest/playground.git`
 
 Optional environment:
- * `REMOTE_BRANCH`: Remote branch to use
+ * `REMOTE_BRANCH`: Remote branch to use. Defaults to master.
  * `FORCE_CLONE`: Delete volume content before cloning remote repository
 
 To use SSH authentication to access remote repository, one of following
 variables must be set:
  * `GIT_RSA_DEPLOY_KEY`: Private RSA key to use (eg: [GitHub deploy keys](https://developer.github.com/guides/managing-deploy-keys/))
- * `GIT_RSA_DEPLOY_KEY_FILE`: Path to a file containning the private RSA key to use
+ * `GIT_RSA_DEPLOY_KEY_FILE`: Path to a file containing the private RSA key to use
 
 
 **WARNING**: the `git push` command performs a **forced update** to the `master` branch, which might result in **data loss** !
