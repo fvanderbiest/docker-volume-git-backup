@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 
 MAINTAINER fvanderbiest "francois.vanderbiest@gmail.com"
 
@@ -11,6 +11,8 @@ RUN chmod +x /entrypoint.sh
 
 VOLUME [ "/var/local/data" ]
 WORKDIR /var/local/data
+
+ENV REMOTE_BRANCH master
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD ["bash", "-l", "/run.sh"]
