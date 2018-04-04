@@ -32,8 +32,11 @@ sync:
   volumes:
     - geoserver_datadir:/var/local/data:rw
 ```
+If `WATCH_FILE` environment is not set, volume will only be bootstraped from
+remote git repository. Note that entrypoint will stop just after volume
+bootstrap so you should configure container restart policy.
 
-Required environment:
+Required environment for watching:
  * `WATCH_FILE`: file to watch (path relative to volume root)
  * `GIT_COMMIT_MESSAGE`: string or expression evaluated in the volume to provide a commit message
  * `GIT_USERNAME`: git username for commit
