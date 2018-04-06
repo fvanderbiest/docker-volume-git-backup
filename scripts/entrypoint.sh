@@ -64,5 +64,7 @@ if [ -n "$REMOTE_NAME" ] && [ -n "$REMOTE_URL" ]; then
   git clean -xdf
 fi
 
-# execute CMD
-exec "$@"
+# Launch inotify to watch $WATCH_FILE if configured
+if [ -n "$WATCH_FILE" ]; then
+  exec "$@"
+fi
