@@ -41,11 +41,11 @@ if [ ! -d .git ]; then
     fi
 
     echo "Cloning from $REMOTE_URL"
-    git clone -b $REMOTE_BRANCH $REMOTE_URL .
+    sudo -u git git clone -b $REMOTE_BRANCH $REMOTE_URL .
 
   else
     echo "No remote configured, just init"
-    git init
+    sudo -u git git init
   fi
 
 fi
@@ -54,14 +54,14 @@ fi
 if [ -n "$REMOTE_NAME" ] && [ -n "$REMOTE_URL" ]; then
   # set new url for remote
   echo "Setup remote $REMOTE_NAME to $REMOTE_URL"
-  git remote rm $REMOTE_NAME &> /dev/null
-  git remote add $REMOTE_NAME $REMOTE_URL
+  sudo -u git git remote rm $REMOTE_NAME &> /dev/null
+  sudo -u git git remote add $REMOTE_NAME $REMOTE_URL
 
   echo "Fetch remote repo"
-  git fetch $REMOTE_NAME
+  sudo -u git git fetch $REMOTE_NAME
   echo "Reset to upstream state"
-  git reset --hard $REMOTE_NAME/$REMOTE_BRANCH
-  git clean -xdf
+  sudo -u git git reset --hard $REMOTE_NAME/$REMOTE_BRANCH
+  sudo -u git git clean -xdf
 fi
 
 # Launch inotify to watch $WATCH_FILE if configured

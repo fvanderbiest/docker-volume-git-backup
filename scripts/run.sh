@@ -22,14 +22,14 @@ do
     inotifywait -e modify $WATCH_FILE
 
     # commit all files from current dir:
-    git add --all .
+    sudo -u git git add --all .
 
     # commit with custom message:
     msg=`eval $GIT_COMMIT_MESSAGE`
-    git commit -m "${msg:-"no commit message"}"
+    sudo -u git git commit -m "${msg:-"no commit message"}"
 
     if [ $REMOTE_NAME ] && [ $REMOTE_URL ]; then
         # push to repository in the background
-        git push $REMOTE_NAME $REMOTE_BRANCH &
+        sudo -u git git push $REMOTE_NAME $REMOTE_BRANCH &
     fi
 done
